@@ -1,13 +1,7 @@
 <launch>
-  <!-- Load the URDF and SRDF configuration -->
-  <include file="$(find fetch_moveit_config)/launch/planning_context.launch">
-    <arg name="load_robot_description" value="true"/>
+  <include file="$(find fetch_gazebo_demo)/launch/fetch_nav.launch">
   </include>
-
-  <!-- Start the Move Group Action Server -->
   <include file="$(find fetch_moveit_config)/launch/move_group.launch">
-    <arg name="allow_trajectory_execution" value="true"/>
-    <arg name="fake_execution" value="false"/>
   </include>
 
   <!-- AR Marker Detection -->
@@ -30,7 +24,7 @@
   <node pkg="tf2_ros" type="buffer_server" name="tf2_buffer_server">
     <param name="buffer_size" value="120.0"/>
   </node>
-
-  <!-- Launch the main script -->
-  <node pkg="fetch_demo" type="ar_pick_and_place.py" name="ar_pick_and_place" output="screen"/>
+  
+  <node pkg="rviz" type="rviz" name="$(anon rviz)" args="-d $(find fetch_demo)/config/motion_planning.rviz">
+  </node>
 </launch>
