@@ -1,0 +1,3 @@
+<launch>
+  <node pkg="fetch_demo" type="ar_pick_and_place.py" name="ar_pick_and_place" output="screen"/>
+</launch>

@@ -13,13 +13,9 @@
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="headless" value="$(arg headless)"/>
-    <arg name="world_name" value="$(find fetch_demo)/worlds/world.sdf"/>
+    <arg name="world_name" value="$(find fetch_demo)/worlds/brick_shack.sdf"/>
   </include>
 
   <include file="$(find fetch_gazebo)/launch/include/$(arg robot).launch.xml" />
-
-  # task 1
-  <node pkg="fetch_demo" type="keyboard_teleop.py" name="fetch_teleop" output="screen">
-  </node>
 
 </launch>

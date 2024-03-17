@@ -1,0 +1,8 @@
+<launch>
+  <include file="$(find fetch_navigation)/launch/build_map.launch">
+  </include>
+  <node pkg="test_run" type="keyboard_teleop.py" name="fetch_teleop" output="screen">
+  </node>
+  <node pkg="rviz" type="rviz" name="$(anon rviz)" args="-d $(find test_run)/config/test_run.rviz">
+  </node>
+</launch>
