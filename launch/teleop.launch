@@ -1,4 +1,0 @@
-<launch>
-  <node pkg="test_run" type="keyboard_teleop.py" name="fetch_teleop" output="screen">
-  </node>
-</launch>

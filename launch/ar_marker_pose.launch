@@ -1,23 +1,27 @@
 <launch>
-  <!-- Load the URDF and SRDF configuration -->
+  <!-- Include the Fetch robot navigation launch file -->
+  <include file="$(find fetch_navigation)/launch/fetch_nav.launch" />
+
+  <!-- Load the URDF and SRDF configuration for MoveIt! -->
   <include file="$(find fetch_moveit_config)/launch/planning_context.launch">
     <arg name="load_robot_description" value="true"/>
   </include>
 
-  <!-- Start the Move Group Action Server -->
+  <!-- Start the Move Group Action Server for motion planning -->
   <include file="$(find fetch_moveit_config)/launch/move_group.launch">
     <arg name="allow_trajectory_execution" value="true"/>
     <arg name="fake_execution" value="false"/>
   </include>
 
-  <!-- AR Marker Detection -->
-  <arg name="marker_size" default="0.045"/> <!-- Marker size in meters (4.5 cm) -->
+  <!-- Arguments for AR Marker Detection -->
+  <arg name="marker_size" default="4.5"/> <!-- Marker size in meters -->
   <arg name="max_new_marker_error" default="0.08"/>
   <arg name="max_track_error" default="0.2"/>
   <arg name="cam_image_topic" default="/head_camera/rgb/image_raw"/>
   <arg name="cam_info_topic" default="/head_camera/rgb/camera_info"/>
-  <arg name="output_frame" default="base_link"/>
+  <arg name="output_frame" default="base_link"/> <!-- Adjusted output frame to "base_link" -->
 
+  <!-- AR Marker Detection Node -->
   <node pkg="ar_track_alvar" type="individualMarkersNoKinect" name="ar_track_alvar" output="screen">
     <param name="marker_size" value="$(arg marker_size)"/>
     <param name="max_new_marker_error" value="$(arg max_new_marker_error)"/>
@@ -27,10 +31,8 @@
     <remap from="camera_info" to="$(arg cam_info_topic)"/>
   </node>
 
-  <node pkg="tf2_ros" type="buffer_server" name="tf2_buffer_server">
-    <param name="buffer_size" value="120.0"/>
-  </node>
+  <!-- RViz for visualization with custom configuration -->
+  <node pkg="rviz" type="rviz" name="$(anon rviz)" args="-d $(find utility)/config/looking.rviz" />
 
-  <!-- Launch the main script -->
-  <node pkg="fetch_demo" type="ar_pick_and_place.py" name="ar_pick_and_place" output="screen"/>
+  <node pkg="fetch_demo" type="ar_marker_pose.py" name="ar_marker_pose" output="screen"/>
 </launch>

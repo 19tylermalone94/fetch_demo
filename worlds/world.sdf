@@ -86,20 +86,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>1691 540000000</sim_time>
-      <real_time>152 2657952</real_time>
-      <wall_time>1710649993 543653582</wall_time>
-      <iterations>144580</iterations>
-      <model name='AR_marker_01'>
-        <pose frame=''>2.6405 -0.06847 0.79868 0.253238 -1.05977 -0.434349</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>2.6405 -0.06847 0.79868 0.253238 -1.05977 -0.434349</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
+      <sim_time>1758 972000000</sim_time>
+      <real_time>70 971825437</real_time>
+      <wall_time>1710826412 351157935</wall_time>
+      <iterations>67432</iterations>
       <model name='brick_shack'>
         <pose frame=''>0.333 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -149,13 +139,13 @@
         </link>
       </model>
       <model name='demo_cube'>
-        <pose frame=''>2.66269 0.131273 0.802999 0 -0 0</pose>
+        <pose frame=''>2.66269 0.033602 0.802999 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>2.66269 0.131273 0.802999 0 -0 0</pose>
+          <pose frame=''>2.66269 0.033602 0.802999 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 -0 0 0 -0 0</acceleration>
-          <wrench>0 -0 0 0 -0 0</wrench>
+          <acceleration>-0 -0 0 0 -0 0</acceleration>
+          <wrench>-0 -0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='ground_plane'>
@@ -207,7 +197,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-1.6612 1.52496 3.32666 0 0.765796 -0.675811</pose>
+        <pose frame=''>0.000961 -0.013887 13.6121 0 1.4738 1.53619</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -633,29 +623,6 @@
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
     </light>
-    <model name='AR_marker_01'>
-      <static>1</static>
-      <link name='link'>
-        <visual name='visual'>
-          <geometry>
-            <box>
-              <size>0.045 0.045 0.001</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://AR_Marker_01/materials/scripts</uri>
-              <uri>model://AR_Marker_01/materials/textures</uri>
-              <name>AR_Marker_01/Material</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>2.77508 -0.325308 0 0 -0 0</pose>
-    </model>
     <light name='user_spot_light_0' type='spot'>
       <pose frame=''>2.94173 0.041208 1 0 -0 0</pose>
       <diffuse>0.5 0.5 0.5 1</diffuse>
