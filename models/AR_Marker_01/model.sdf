@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+    <model name="AR_marker_01">
+        <static>true</static>
+        <link name="link">
+            <visual name="visual">
+                <geometry>
+                    <box>
+                        <size>0.045 0.045 0.001</size>
+                    </box>
+                </geometry>
+                <material>
+                    <script>
+                        <uri>model://AR_Marker_01/materials/scripts</uri>
+                        <uri>model://AR_Marker_01/materials/textures</uri>
+                        <name>AR_Marker_01/Material</name>
+                    </script>
+                </material>
+            </visual>
+        </link>
+    </model>
+</sdf>
+

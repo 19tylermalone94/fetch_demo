@@ -1,0 +1,9 @@
+material AR_Marker_01/Material {
+    technique {
+        pass {
+            texture_unit {
+                texture MarkerData_0.png
+            }
+        }
+    }
+}
