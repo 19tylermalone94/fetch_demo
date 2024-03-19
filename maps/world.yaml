@@ -1,0 +1,7 @@
+image: /home/tyler/catkin_ws/src/fetch_demo/maps/world.pgm
+resolution: 0.050000
+origin: [-4.791392, -1.897325, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+
