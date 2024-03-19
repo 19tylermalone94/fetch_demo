@@ -63,7 +63,7 @@ def move_forward(distance, speed):
     rospy.loginfo("Finished moving forward")
 
 
-def ar_pose_marker_callback(msg):
+def detect_and_point_to_marker(msg):
     global ar_subscriber
     try:
         for marker in msg.markers:
@@ -71,7 +71,6 @@ def ar_pose_marker_callback(msg):
             if marker.id == 0:
                 rospy.loginfo("AR marker detected, moving arm to pose")
                 move_arm_to_pose(marker.pose.pose)
-                # Unsubscribe after successful detection and arm movement
                 ar_subscriber.unregister()
                 rospy.loginfo("Unsubscribed from AR marker detections.")
                 break
@@ -95,7 +94,7 @@ if __name__ == '__main__':
     roscpp_initialize(sys.argv)
     rospy.init_node('ar_marker_pose', anonymous=True)
     move_forward(distance=0.85, speed=0.2)
-    ar_subscriber = rospy.Subscriber('/ar_pose_marker', AlvarMarkers, ar_pose_marker_callback)
+    ar_subscriber = rospy.Subscriber('/ar_pose_marker', AlvarMarkers, detect_and_point_to_marker)
     rospy.sleep(5)
     tuck_arm()
     rospy.spin()
