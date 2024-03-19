@@ -1,6 +1,7 @@
 <launch>
+  <include file="$(find fetch_navigation)/launch/fetch_nav.launch" />
   <include file="$(find fetch_moveit_config)/launch/move_group.launch" >
-    <arg name="info" value="true"/><!-- publish grasp markers -->
+    <arg name="info" value="true"/>
   </include>
   <node name="basic_grasping_perception" pkg="simple_grasping" type="basic_grasping_perception" >
     <rosparam command="load" file="$(find fetch_demo)/config/simple_grasping.yaml" />
